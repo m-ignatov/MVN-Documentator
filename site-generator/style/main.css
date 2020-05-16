@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ececec;
+    margin: 3rem;
+}
+
+h1 {
+    color: #2d495e;
+    font-weight: bolder;
+}
+
+.container {
+    margin-top: 1rem;
+}
+
+#registerForm {
+    margin: 1rem 2rem 0 0;
+}
+
+#inputLabel {
+    font-weight: bold;
+    color: #2d495e;
+}
+
+.form-container {
+    display: flex;
+}
+
+.registerButton {
+    text-align: right;
+}
+
+.registerButton button {
+    font-weight: bold;
+    border: 2px solid #2d495e;
+    color: #2d495e;
+    padding: 5px;
+}
+
+.registerButton button:hover {
+    background-color: #2d495e;
+    color: #ececec;
+}
+
+.form-container * {
+    margin-top: 0.5rem;
+    display: block;
+}
+
+.form-container label {
+    margin-top: 1rem;
+}
+
+.form-container input, textarea {
+    height: 1.5rem;
+    width: 12rem;
+}
+
+#zodiacLabel {
+    font-weight: bold;
+    color: #2d495e;
+}
+
+.column {
+    margin-right: 2rem;
+    flex: 50%;
+}

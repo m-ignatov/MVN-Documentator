@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+       <meta charset="UTF-8">
+       <title>Домашно 2
+       </title>
+       <script src="script/register.js"
+               defer></script>
+       <script src="script/zodiac.js"
+               defer></script>
+       <script src="script/signature.js"
+               defer></script>
+       <script
+               src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+       <link rel="stylesheet"
+             type="text/css"
+             href="style/main.css">
+</head>
+
+<body>
+       <h1>Регистрация</h1>
+       <div class="container">
+              <form id="registerForm">
+                     <div class="form-container">
+                            <div class="column">
+                                   <label for="firstName">Собствено име:</label>
+                                   <input type="text"
+                                          name="firstName"
+                                          id="firstName"
+                                          pattern="\p{L}+"
+                                          title="Името съдържа само главни/малки букви"
+                                          required />
+                                   <label for="lastName">Фамилия:</label>
+                                   <input type="text"
+                                          pattern="\p{L}+"
+                                          title="Фамилията съдържа само главни/малки букви"
+                                          name="lastName"
+                                          id="lastName"
+                                          required />
+                                   <label for="courseYear">Курс, година:</label>
+                                   <input type="number"
+                                          min="1800"
+                                          max="3999"
+                                          name="courseYear"
+                                          id="courseYear"
+                                          required />
+                                   <label for="courseName">Курс, специалност:</label>
+                                   <input type="text"
+                                          name="courseName"
+                                          id="courseName"
+                                          required />
+                                   <label for="facultyNumber">Факултетен номер:</label>
+                                   <input type="text"
+                                          name="facultyNumber"
+                                          id="facultyNumber"
+                                          maxlength="15"
+                                          required />
+                                   <label for="groupNumber">Номер на група:</label>
+                                   <input type="number"
+                                          name="groupNumber"
+                                          id="groupNumber"
+                                          min=1
+                                          max="100"
+                                          required />
+
+                                   <label for="birthday">Дата на раждане:</label>
+                                   <input type="date"
+                                          name="birthday"
+                                          id="birthday"
+                                          onchange="getZodiac(event);"
+                                          required />
+                                   <label id="zodiacLabel">
+                                          Зодия
+                                   </label>
+                            </div>
+                            <div class="column">
+                                   <label for="link">Линк:</label>
+                                   <input type="url"
+                                          name="link"
+                                          id="link" />
+                                   <label for="photo">Снимка:</label>
+                                   <input type="file"
+                                          id="photo"
+                                          name="photo"
+                                          accept="image/*"
+                                          required />
+                                   <label for="motivation">Мотивация:</label>
+                                   <textarea name="motivation"
+                                             id="motivation"
+                                             rows="4"></textarea>
+                                   <label for="signature-pad">Подпис:</label>
+                                   <canvas id="signature-pad"
+                                           class="signature-pad"></canvas>
+                            </div>
+                            <div class="registerButton">
+                                   <button>Регистрирай се</button>
+                            </div>
+                     </div>
+              </form>
+       </div>
+</body>
+
+</html>
