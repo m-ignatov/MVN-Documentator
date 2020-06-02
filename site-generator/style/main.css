@@ -13,7 +13,7 @@ h1 {
     margin-top: 1rem;
 }
 
-#registerForm {
+#generateForm {
     margin: 1rem 2rem 0 0;
 }
 
@@ -26,20 +26,22 @@ h1 {
     display: flex;
 }
 
-.registerButton {
-    text-align: right;
-}
-
-.registerButton button {
+#generateButton {
     font-weight: bold;
     border: 2px solid #2d495e;
     color: #2d495e;
     padding: 5px;
 }
 
-.registerButton button:hover {
+#generateButton:hover {
     background-color: #2d495e;
     color: #ececec;
+}
+
+#generateButton:disabled, button[disabled] {
+    border: 2px solid #868686;
+    background-color: #ececec;
+    color: #646464;
 }
 
 .form-container * {
@@ -51,14 +53,9 @@ h1 {
     margin-top: 1rem;
 }
 
-.form-container input, textarea {
+.form-container input {
     height: 1.5rem;
     width: 12rem;
-}
-
-#zodiacLabel {
-    font-weight: bold;
-    color: #2d495e;
 }
 
 .column {

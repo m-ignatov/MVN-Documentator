@@ -1,0 +1,3 @@
+# Ignore Maven generated content
+
+*/maven/target

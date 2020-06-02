@@ -1,12 +1,12 @@
--- $dbName = "62113_momchil_ignatov"
+-- $dbName = "maven_generator_db"
 -- $userName = "root"
 -- $userPassword = ""
 
-CREATE DATABASE IF NOT EXISTS 62113_momchil_ignatov
+CREATE DATABASE IF NOT EXISTS maven_generator_db
     CHARACTER SET utf8
     COLLATE utf8_general_ci;
 
-USE 62113_momchil_ignatov;
+USE maven_generator_db;
 
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
