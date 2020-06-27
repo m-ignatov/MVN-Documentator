@@ -1,5 +1,6 @@
 <?php
-require_once "../models/CsvValidator.php";
+require_once "../services/CsvValidator.php";
+require_once "../services/ProjectService.php";
 require_once "../models/Project.php";
 
 $fileInputName = 'dataFile';
@@ -10,17 +11,28 @@ if (!$_SERVER['REQUEST_METHOD'] === 'POST' || !isset($_FILES[$fileInputName])) {
 }
 
 $file = $_FILES[$fileInputName];
-$errors = CsvValidator::validate($file);
 
-if ($errors) {
-    sendResponse($errors, false);
+try {
+    CsvValidator::validate($file);
+} catch (Exception $e) {
+    sendResponse($e->getMessage(), false);
     return;
 }
 
 // Load data to DB
+$filePath = str_replace('\\', '/', $file['tmp_name']);
 
+try {
+    $projectService = new ProjectService();
 
-// Process data with SimpleXML
+    $projectService->persist($filePath);
+    $result = $projectService->fetchAll();
+} catch (Exception $e) {
+    sendResponse($e->getMessage(), false);
+    return;
+}
+
+// TODO: Process data with SimpleXML
 
 
 // Generate site
@@ -30,33 +42,6 @@ $outputString = implode("\n", $output);
 $success = strpos($outputString, 'BUILD SUCCESS') ? true : false;
 
 sendResponse($outputString, $success);
-
-// $user = new User(
-//     $phpInput['firstName'],
-//     $phpInput['lastName'],
-//     $phpInput['courseYear'],
-//     $phpInput['courseName'],
-//     $phpInput['facultyNumber'],
-//     $phpInput['groupNumber'],
-//     $phpInput['birthday'],
-//     $phpInput['zodiac'],
-//     $phpInput['link'],
-//     $phpInput['photo'],
-//     $phpInput['motivation'],
-//     $phpInput['signature']
-// );
-
-// try {
-//     $user->validate();
-//     $user->storeInDb();
-
-//     echo json_encode(['success' => true]);
-// } catch (Exception $e) {
-//     echo json_encode([
-//         'success' => false,
-//         'message' => $e->getMessage(),
-//     ]);
-// }
 
 function sendResponse($message, $success)
 {

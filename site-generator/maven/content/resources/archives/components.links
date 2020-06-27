@@ -1,3 +1,0 @@
-# links property file for Ant's symlink task in pom.xml:
-# links to components in https://maven.apache.org/components/
-maven-1.x   ../components/archives/maven-1.x

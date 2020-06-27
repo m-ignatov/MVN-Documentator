@@ -1,6 +1,5 @@
 <?php
 
-// TODO
 class Project
 {
     private $firstName;
@@ -28,31 +27,32 @@ class Project
     private $signature;
 
     public function __construct(
-        $firstName,
-        $lastName,
-        $courseYear,
-        $courseName,
-        $facultyNumber,
-        $groupNumber,
-        $birthday,
-        $zodiac,
-        $link,
-        $photo,
-        $motivation,
-        $signature
-    ) {
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
-        $this->courseYear = $courseYear;
-        $this->courseName = $courseName;
-        $this->facultyNumber = $facultyNumber;
-        $this->groupNumber = $groupNumber;
-        $this->birthday = $birthday;
-        $this->zodiac = $zodiac;
-        $this->link = $link;
-        $this->photo = $photo;
-        $this->motivation = $motivation;
-        $this->signature = $signature;
+        // $firstName,
+        // $lastName,
+        // $courseYear,
+        // $courseName,
+        // $facultyNumber,
+        // $groupNumber,
+        // $birthday,
+        // $zodiac,
+        // $link,
+        // $photo,
+        // $motivation,
+        // $signature
+    )
+    {
+        // $this->firstName = $firstName;
+        // $this->lastName = $lastName;
+        // $this->courseYear = $courseYear;
+        // $this->courseName = $courseName;
+        // $this->facultyNumber = $facultyNumber;
+        // $this->groupNumber = $groupNumber;
+        // $this->birthday = $birthday;
+        // $this->zodiac = $zodiac;
+        // $this->link = $link;
+        // $this->photo = $photo;
+        // $this->motivation = $motivation;
+        // $this->signature = $signature;
     }
 
     public function validate(): void
@@ -99,42 +99,5 @@ class Project
     {
         $d = DateTime::createFromFormat($format, $date);
         return $d && $d->format($format) === $date;
-    }
-
-    public function storeInDb(): void
-    {
-        require_once "../models/Database.php";
-
-        $database = new Database();
-        $connection = $database->getConnection();
-
-        $insertStatement = $connection->prepare(
-            "INSERT INTO users (firstName, lastName, courseYear, courseName, facultyNumber, groupNumber, birthday, zodiac, link, photo, motivation, signature)
-             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-        );
-
-        $query = "LOAD DATA INFILE 'input.csv' INTO TABLE tbl_student_master IGNORE 1 LINES";
-        if (!mysqli_query($conn, $query)) {
-            printf("Errormessage: %s\n", mysqli_error($conn));
-        }
-
-        $insertResult = $insertStatement->execute([
-            $this->firstName,
-            $this->lastName,
-            $this->courseYear,
-            $this->courseName,
-            $this->facultyNumber,
-            $this->groupNumber,
-            $this->birthday,
-            $this->zodiac,
-            $this->link,
-            $this->photo,
-            $this->motivation,
-            $this->signature,
-        ]);
-
-        if (!$insertResult) {
-            throw new Exception("Request failed, try again later");
-        }
     }
 }
