@@ -22,7 +22,7 @@ class ProjectService
         return $result->fetchAll();
     }
 
-    private function executeQuery($query)
+    public function executeQuery($query)
     {
         $connection = $this->getDbConnection();
         $statement = $connection->prepare($query);
@@ -33,7 +33,7 @@ class ProjectService
         return $statement;
     }
 
-    private function getDbConnection()
+    public function getDbConnection()
     {
         return $this->database->getConnection();
     }

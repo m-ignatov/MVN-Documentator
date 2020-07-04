@@ -1,0 +1,3 @@
+projectID,projectName,projectDescription,exampleResources,usedResources,githubLink,presentationDate,presentationTime,presentationLink
+1,Generate website using Maven,WEB project,no,no,https://github.com/m-ignatov/FMI-WEB-PROJECT,2020-7-20,14:00,BBB
+2,Maven project,example,no,no,https://github.com/m-ignatov/FMI-WEB-PROJECT,2020-07-22,16:00,BBB

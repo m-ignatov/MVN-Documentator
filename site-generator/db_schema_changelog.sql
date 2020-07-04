@@ -10,15 +10,15 @@ USE maven_generator_db;
 
 -- EXAMPLE DATA - will change later
 CREATE TABLE IF NOT EXISTS projects (
-    Sell INT,
-    List INT,
-    Living INT,
-    Rooms INT,
-    Beds INT,
-    Baths INT,
-    Age INT,
-    Acres FLOAT,
-    Taxes INT
+    projectID INT NOT NULL PRIMARY KEY,
+    projectName VARCHAR(255) NOT NULL,
+    projectDescription VARCHAR(2000) NOT NULL,
+    exampleResources VARCHAR(2000),
+    usedResources VARCHAR(2000),
+    githubLink VARCHAR(500),
+    presentationDate DATE NOT NULL,
+    presentationTime TIME NOT NULL,
+    presentationLink INT NOT NULL
     -- id INT AUTO_INCREMENT PRIMARY KEY,
     -- firstName VARCHAR(255) NOT NULL,
     -- lastName VARCHAR(255) NOT NULL,
@@ -32,4 +32,17 @@ CREATE TABLE IF NOT EXISTS projects (
     -- photo VARCHAR(255) NOT NULL,
     -- motivation TEXT,
     -- signature VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS students (
+    projectID INT NOT NULL,
+    firstName VARCHAR(255) NOT NULL,
+    lastName VARCHAR(255) NOT NULL,
+    courseName VARCHAR(255) NOT NULL,
+    courseYear INT NOT NULL,
+    facultyNumber INT NOT NULL PRIMARY KEY,
+    projectTasks VARCHAR(2000) NOT NULL,
+    manHours INT NOT NULL,
+    CONSTRAINT foreign_key_constraint FOREIGN KEY (projectID)
+    REFERENCES projects(projectID)
 );

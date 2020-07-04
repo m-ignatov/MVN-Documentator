@@ -1,0 +1,86 @@
+:root{
+--brisk-scheme-1: #4d4557;
+--brisk-scheme-2: #872542;
+--brisk-scheme-3: #f7c026;
+--brisk-scheme-4: #a0d3f9;
+
+--compote-scheme-1: #93495e;
+--compote-scheme-2: #59648e;
+--compote-scheme-3: #c3b4d7;
+--compote-scheme-4: #e5e5e5;
+
+--condiments-scheme-1: #e2495b;
+--condiments-scheme-2: #c4ba3b;
+--condiments-scheme-3: #f4ed6e;
+--condiments-scheme-4: #fffee6;
+
+--gecko-scheme-1: #9f4298;
+--gecko-scheme-2: #cfdb30;
+--gecko-scheme-3: #d1b0d4;
+--gecko-scheme-4: #e7e6e9;
+
+--harbour-scheme-1: #344649;
+--harbour-scheme-2: #6d7a8a;
+--harbour-scheme-3: #a4c6c4;
+--harbour-scheme-4 : #e1e7e9;
+
+--harvest-scheme-1: #8e7c68;
+--harvest-scheme-2: #ed7458;
+--harvest-scheme-3: #ffdc9f;
+--harvest-scheme-4: #ddc9bc;
+
+--pebble-scheme-1: #433f49;
+--pebble-scheme-2: #91848f;
+--pebble-scheme-3: #dcc2ad;
+--pebble-scheme-4: #f3e7eb;
+
+--scholar-scheme-2: #333e51;
+--scholar-scheme-3: #d2ac2c;
+--scholar-scheme-4: #cad0d7;
+--scholar-scheme-5: #f4f3ea;
+
+--scuba-scheme-1: #0c4a60;
+--scuba-scheme-2: #ef6c33;
+--scuba-scheme-3: #abdff1;
+--scuba-scheme-4: #e1dddb;
+
+--uncorked-scheme-1: #7f056e;
+--uncorked-scheme-2: #c09247;
+--uncorked-scheme-3: #cab387;
+--uncorked-scheme-4: #f2ebe0;
+
+--comment-color: #000;
+}
+
+body{
+    padding: 0px;
+}
+
+section p{
+
+}
+
+section{
+    min-height:100px;
+    margin:0px;
+    padding: 10px 30px 30px;
+}
+
+.category-1{
+background-color: var(--brisk-scheme-1);
+color:white;
+}
+
+.category-2{
+background-color: var(--brisk-scheme-2);
+color:white;
+}   
+
+.category-3{
+background-color: var(--brisk-scheme-3);
+color:black;
+}   
+.comment{
+    font-style: italic;
+    color: var(--comment-color);
+}

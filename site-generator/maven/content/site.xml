@@ -14,6 +14,22 @@
       <sideBarEnabled>false</sideBarEnabled>
     </fluidoSkin>
   </custom>
+ 
+ <bannerLeft>
+    <name>MVN</name>
+    <!--<src>https://i.ibb.co/bHZ4Dyb/mvn-logo-v2.png</src>-->
+    <src>https://i.ibb.co/McKD1hr/mvn-logo-v2-resized.png</src>
+    <href></href>
+  </bannerLeft>
 
+  <publishDate position="left"/>
+    <version position="left"/>
 
+    <poweredBy>
+    <logo name="MVN" href="https://maven.apache.org/"
+          img="https://i.ibb.co/9pbqK0M/mvn-logo-poweredby.png"/>
+  </poweredBy>
+<body>
+ <footer><![CDATA[This website is generated using Maven and is created by FMI students for the WEB Technologies 2019/2020 course @ FMI.]]></footer>
+</body>
 </project>
