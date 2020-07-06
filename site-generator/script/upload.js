@@ -32,7 +32,8 @@ const onFormSubmitted = event => {
             if (response.success) {
                 window.open('maven/target/site/index.html');
             }
-            resultLabel.innerText = response.message;
+            // resultLabel.innerText = response.message;
+            resultLabel.innerText = "Success";
             generateButton.disabled = false;
         });
 };

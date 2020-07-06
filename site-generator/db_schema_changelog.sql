@@ -8,7 +8,6 @@ CREATE DATABASE IF NOT EXISTS maven_generator_db
 
 USE maven_generator_db;
 
--- EXAMPLE DATA - will change later
 CREATE TABLE IF NOT EXISTS projects (
     projectID INT NOT NULL PRIMARY KEY,
     projectName VARCHAR(255) NOT NULL,

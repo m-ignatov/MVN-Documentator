@@ -12,8 +12,13 @@
   </head>
 
   <body>
+<<<<<<< HEAD
       <section name="1.  Generate website using Maven">
         <subsection name="Description" class="category-1">
+=======
+      <section name="">
+       <subsection name="Description" class="category-1">
+>>>>>>> ef1d4627fd362705f6577b681dfa2712861f13d2
         <p class="comment">Project description here.</p>
         <p>WEB project</p>
       </subsection>
