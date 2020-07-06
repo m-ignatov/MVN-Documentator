@@ -1,18 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
-  <properties>
-    <title>Documentation</title>
-    <author email="user@company.com">Viktoriya Dobreva and Momchil Ignatov</author>
-  </properties>
-
-  <head>
-    <link rel="stylesheet" type="text/css" href="css/xdoc-style.css"/>
-    <meta/>
-  </head>
-
-  <body>
-      <section name="">
+    <section name="">
       <p class="comment">This website is automatically generated using Maven and is used as a documentation for projects created for the "Web Technologies" 2019/2020 course at FMI</p>
 
        <subsection name="Description" class="category-1">
@@ -52,7 +39,7 @@
               <td></td>  
               <td></td>
             </tr>
-            <tr>
+             <tr>
               <td></td>
               <td></td>
               <td></td>
@@ -60,8 +47,8 @@
               <td></td>
               <td></td>  
               <td></td>
-            </tr>      
-            <tr>
+            </tr>    
+             <tr>
               <td></td>
               <td></td>
               <td></td>
@@ -69,7 +56,7 @@
               <td></td>
               <td></td>  
               <td></td>
-            </tr>            
+            </tr>          
           </tbody>
         </table>
       </subsection>
@@ -85,6 +72,4 @@
       <p><b><u>Link to BBB</u></b></p>
       <p></p>
       </subsection>
-    </section></body>
-
-</document>
+    </section>

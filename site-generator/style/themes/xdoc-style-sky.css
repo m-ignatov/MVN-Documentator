@@ -1,0 +1,34 @@
+:root {
+    --sky-scheme-1: #97B3D0;
+    --sky-scheme-2: #DBB04A;
+    --sky-scheme-3: #DFDCE5;
+}
+
+body {
+    padding: 0px;
+}
+
+section {
+    min-height: 100px;
+    margin: 0px;
+    padding: 10px 30px 30px;
+}
+
+.category-1 {
+    background-color: var(--sky-scheme-1);
+    color: white;
+}
+
+.category-2 {
+    background-color: var(--sky-scheme-2);
+    color: white;
+}
+
+.category-3 {
+    background-color: var(--sky-scheme-3);
+    color: white;
+}
+
+.comment {
+    font-style: italic;
+}

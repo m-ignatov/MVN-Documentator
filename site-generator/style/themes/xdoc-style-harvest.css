@@ -1,0 +1,36 @@
+:root {
+    --harvest-scheme-1: #8e7c68;
+    --harvest-scheme-2: #ed7458;
+    --harvest-scheme-3: #ffdc9f;
+    --harvest-scheme-4: #ddc9bc;
+    --comment-color: #000;
+}
+
+body {
+    padding: 0px;
+}
+
+section {
+    min-height: 100px;
+    margin: 0px;
+    padding: 10px 30px 30px;
+}
+
+.category-1 {
+    background-color: var(--harvest-scheme-1);
+    color: white;
+}
+
+.category-2 {
+    background-color: var(--harvest-scheme-2);
+    color: white;
+}
+
+.category-3 {
+    background-color: var(--harvest-scheme-3);
+    color: var(--harvest-scheme-1);
+}
+
+.comment {
+    font-style: italic;
+}

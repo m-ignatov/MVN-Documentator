@@ -1,0 +1,35 @@
+:root {
+    --scholar-scheme-1: #333e51;
+    --scholar-scheme-2: #d2ac2c;
+    --scholar-scheme-3: #cad0d7;
+    --scholar-scheme-4: #f4f3ea;
+}
+
+body {
+    padding: 0px;
+}
+
+section {
+    min-height: 100px;
+    margin: 0px;
+    padding: 10px 30px 30px;
+}
+
+.category-1 {
+    background-color: var(--scholar-scheme-1);
+    color: white;
+}
+
+.category-2 {
+    background-color: var(--scholar-scheme-2);
+    color: white;
+}
+
+.category-3 {
+    background-color: var(--scholar-scheme-3);
+    color: black;
+}
+
+.comment {
+    font-style: italic;
+}

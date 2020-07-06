@@ -1,0 +1,37 @@
+:root {
+    --condiments-scheme-1: #e2495b;
+    --condiments-scheme-2: #c4ba3b;
+    --condiments-scheme-3: #f4ed6e;
+    --condiments-scheme-4: #fffee6;
+    --comment-color: #000;
+}
+
+body {
+    padding: 0px;
+}
+
+section {
+    min-height: 100px;
+    margin: 0px;
+    padding: 10px 30px 30px;
+}
+
+.category-1 {
+    background-color: var(--condiments-scheme-1);
+    color: var(--condiments-scheme-4);
+}
+
+.category-2 {
+    background-color: var(--condiments-scheme-2);
+    color: var(--condiments-scheme-4);
+}
+
+.category-3 {
+    background-color: var(--condiments-scheme-3);
+    color: black;
+}
+
+.comment {
+    font-style: italic;
+    color: var(--comment-color);
+}

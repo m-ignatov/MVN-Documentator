@@ -1,0 +1,36 @@
+:root {
+    --brisk-scheme-1: #4d4557;
+    --brisk-scheme-2: #872542;
+    --brisk-scheme-3: #f7c026;
+    --brisk-scheme-4: #a0d3f9;
+    --comment-color: #000;
+}
+
+body {
+    padding: 0px;
+}
+
+section {
+    min-height: 100px;
+    margin: 0px;
+    padding: 10px 30px 30px;
+}
+
+.category-1 {
+    background-color: var(--brisk-scheme-1);
+    color: white;
+}
+
+.category-2 {
+    background-color: var(--brisk-scheme-2);
+    color: white;
+}
+
+.category-3 {
+    background-color: var(--brisk-scheme-3);
+    color: black;
+}
+
+.comment {
+    font-style: italic;
+}

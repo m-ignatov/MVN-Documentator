@@ -1,0 +1,43 @@
+:root {
+    --scuba-scheme-1: #0c4a60;
+    --scuba-scheme-2: #ef6c33;
+    --scuba-scheme-3: #abdff1;
+    --scuba-scheme-4: #e1dddb;
+    --comment-grey: #babdbe;
+    --comment-color: #000;
+}
+
+body {
+    padding: 0px;
+}
+
+section p {}
+
+section {
+    min-height: 100px;
+    margin: 0px;
+    padding: 10px 30px 30px;
+}
+
+.category-1 {
+    background-color: var(--scuba-scheme-1);
+    color: white;
+}
+.category-1 .comment{
+    color: var(--comment-grey);
+}
+
+.category-2 {
+    background-color: var(--scuba-scheme-3);
+    color: white;
+}
+
+.category-3 {
+    background-color: var(--scuba-scheme-4);
+    color: black;
+}
+
+.comment {
+    font-style: italic;
+    color: var(--comment-color);
+}

@@ -9,19 +9,24 @@ const onFormSubmitted = event => {
     const resultLabel = document.getElementById('result');
 
     if (!file) {
-        resultLabel.innerText = 'No file uploaded';
+        window.alert("No file chosen");
+        return;
+    }
+
+    if (activeOption == -1) {
+        window.alert("No theme chosen");
         return;
     }
 
     const formData = new FormData();
     formData.append(fileInputName, file);
-
+    formData.append("chosenTheme", activeOption); //from generateContent.js takes the activeOption var which indicates the choosen theme 
     resultLabel.innerText = 'Generating...';
 
     fetch('./endpoints/upload.php', {
-        method: 'POST',
-        body: formData,
-    })
+            method: 'POST',
+            body: formData,
+        })
         .then(response => response.json())
         .then(response => {
             if (response.success) {
@@ -33,3 +38,9 @@ const onFormSubmitted = event => {
 };
 
 document.getElementById('generateForm').addEventListener('submit', onFormSubmitted);
+
+document.getElementById('upload').addEventListener('change', function() {
+    const fileInputName = 'dataFile';
+    const file = document.getElementById(fileInputName).files[0];
+    document.getElementById('uploadLabel').innerHTML = file.name;
+});
