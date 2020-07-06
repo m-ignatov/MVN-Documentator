@@ -31,10 +31,12 @@ const onFormSubmitted = event => {
         .then(response => {
             if (response.success) {
                 window.open('maven/target/site/index.html');
+                resultLabel.innerText = "Success";
+            } else {
+                resultLabel.innerText = "Failed";
             }
             // resultLabel.innerText = response.message;
-            resultLabel.innerText = "Success";
-            generateButton.disabled = false;
+            // generateButton.disabled = false;
         });
 };
 
