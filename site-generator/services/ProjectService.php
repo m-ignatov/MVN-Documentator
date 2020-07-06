@@ -21,7 +21,7 @@ class ProjectService
             $index = 0;
             $studentIndexArray = [9, 16, 23];
             $flag = true;
-            while (($row = fgetcsv($handle, 2000, ";")) !== FALSE) {
+            while (($row = fgetcsv($handle, 2000, ";")) !== FALSE) { //todo increase num of characters to read from file
                 if ($flag) {
                     $flag = false;
                     continue;

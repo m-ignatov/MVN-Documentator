@@ -10,6 +10,10 @@ if (!$_SERVER['REQUEST_METHOD'] === 'POST' || !isset($_FILES[$fileInputName])) {
     return;
 }
 
+//replace existing index.xml.vm with the indexXmlTemplate to remove existing information
+copy('../docs/IndexXmlTemplate.xml', '../maven/content/xdoc/index.xml.vm');
+
+//
 $file = $_FILES[$fileInputName];
 $chosenTheme = $_POST['chosenTheme'];
 $themesCssStyles = ['brisk', 'compote', 'condiments', 'coral', 'green', 'harbour', 'harvest', 'marsala', 'pebble', 'scholar', 'sky', 'uncorked'];
@@ -36,7 +40,7 @@ try {
     return;
 }
 
-// TODO: Process data with DOM
+// Process data with DOM
 $xdocpath = "../maven/content/xdoc/index.xml.vm";
 if (file_exists($xdocpath)) {
     $xml = new SimpleXMLElement($xdocpath, 0, TRUE);
@@ -54,7 +58,7 @@ if (file_exists($xdocpath)) {
         $index = 0;
         $newdoc = new DOMDocument;
         $newdoc->loadXML(file_get_contents("../docs/sectionTemplate.xml")); // used to copy the <section> elememt as a template for all rows(projects) of the CSV. Easier than creating all <section> elements here, and better than copying the existing section because information is copied as well
-        $sectionNode = $newdoc->getElementsByTagName("section")->item(0); 
+        $sectionNode = $newdoc->getElementsByTagName("section")->item(0);
 
         while ($row = $result_projects->fetch(PDO::FETCH_ASSOC)) {
             $doctosave = new DOMDocument;
@@ -83,28 +87,27 @@ if (file_exists($xdocpath)) {
             $projectID = $row['projectID'];
             $query_students = "SELECT * FROM students WHERE projectID = :value";
             $results_students = $connection->prepare($query_students);
-            $results_students->bindParam(':value',$projectID, PDO::PARAM_INT);
+            $results_students->bindParam(':value', $projectID, PDO::PARAM_INT);
 
             if ($results_students->execute()) { //removes empty rows from tbody which are 3 by default. Better than adding them one by one as this is slower and errors occur when trying to update the table content with DOM
                 $studentIndex = 0;
-                $tableBody = $doctosave->getElementsByTagName("tbody")[$index];//->getElementsByTagName("tr")[$studentIndex];
+                $tableBody = $doctosave->getElementsByTagName("tbody")[$index]; //->getElementsByTagName("tr")[$studentIndex];
                 while ($student_row = $results_students->fetch(PDO::FETCH_ASSOC)) {
 
                     $currentRow = $tableBody->getElementsByTagName("tr")[$studentIndex];
                     for ($i = 0; $i < 7; $i++) {
-                       $currentRow->getElementsByTagName("td")[$i]->nodeValue = $student_row[$studentsFields[$i]];
+                        $currentRow->getElementsByTagName("td")[$i]->nodeValue = $student_row[$studentsFields[$i]];
                     }
                     $doctosave->save($xdocpath);
                     $studentIndex = $studentIndex + 1;
                 }
-                for($removeTrIndex = $studentIndex; $removeTrIndex < 3; $removeTrIndex++)
-                {
+                for ($removeTrIndex = $studentIndex; $removeTrIndex < 3; $removeTrIndex++) {
                     $trToRemove = $tableBody->getElementsByTagName("tr")[$removeTrIndex];
                     $oldElement = $tableBody->removeChild($trToRemove);
                 }
             }
             //   echo $doctosave->saveXML();
-            
+
             $index = $index + 1;
             $doctosave->save($xdocpath);
         }
@@ -121,7 +124,7 @@ $outputString = implode("\n", $output);
 $success = strpos($outputString, 'BUILD SUCCESS') ? true : false;
 
 if ($success) {
-    $cssPath = '../style/themes/xdoc-style-'.$themesCssStyles[intval($chosenTheme)].'.css';
+    $cssPath = '../style/themes/xdoc-style-' . $themesCssStyles[intval($chosenTheme)] . '.css';
     copy($cssPath, '../maven/target/site/css/xdoc-style.css');
 }
 

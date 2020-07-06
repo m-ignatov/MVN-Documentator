@@ -28,7 +28,7 @@ section {
 
 .category-3 {
     background-color: var(--harvest-scheme-3);
-    color: var(--harvest-scheme-1);
+    color: black;
 }
 
 .comment {
