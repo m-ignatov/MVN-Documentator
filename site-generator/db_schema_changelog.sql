@@ -1,7 +1,3 @@
--- $dbName = "maven_generator_db"
--- $userName = "root"
--- $userPassword = ""
-
 CREATE DATABASE IF NOT EXISTS maven_generator_db
     CHARACTER SET utf8
     COLLATE utf8_general_ci;

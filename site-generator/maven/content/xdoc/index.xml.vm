@@ -12,15 +12,10 @@
   </head>
 
   <body>
-<<<<<<< HEAD
-      <section name="1.  Generate website using Maven">
+      <section name="4. Generate website using Maven">
         <subsection name="Description" class="category-1">
-=======
-      <section name="">
-       <subsection name="Description" class="category-1">
->>>>>>> ef1d4627fd362705f6577b681dfa2712861f13d2
         <p class="comment">Project description here.</p>
-        <p>WEB project</p>
+        <p>Automatically generate documentation for software products using Maven and choose your theme</p>
       </subsection>
       <subsection name="Resources" class="category-2">
         <p class="comment">Example resources to use for the project.</p>
@@ -47,31 +42,31 @@
           </thead>
           <tbody>
             <tr>
-              <td> Viktoriya</td>
-              <td> Dobreva</td>
-              <td> Software Engineering</td>
+              <td>Viktoriya</td>
+              <td>Dobreva</td>
+              <td>Software Engineering</td>
               <td>3</td>
               <td>62234</td>
-              <td> frontend</td>  
+              <td>frontend</td>  
               <td>30</td>
             </tr>
             <tr>
-              <td> Momchil</td>
-              <td> Ignatov</td>
-              <td> Software Engineering</td>
-              <td>3</td>
-              <td>62113</td>
-              <td> backend</td>  
-              <td>30</td>
+              <td/>
+              <td/>
+              <td/>
+              <td/>
+              <td/>
+              <td/>  
+              <td/>
             </tr>      
             <tr>
-              <td>Preslav</td>
-              <td> Ivanov</td>
-              <td> Software Engineering</td>
-              <td>3</td>
-              <td>62222</td>
-              <td> frontend</td>  
-              <td>30</td>
+              <td/>
+              <td/>
+              <td/>
+              <td/>
+              <td/>
+              <td/>  
+              <td/>
             </tr>            
           </tbody>
         </table>
@@ -85,6 +80,290 @@
       <p>2020-07-10</p>
       <p><b><u>Time</u></b></p>
       <p>14:00:00</p>
+      <p><b><u>Link to BBB</u></b></p>
+      <p>BBB</p>
+      </subsection>
+    </section><section name="5. Maven project">
+       <subsection name="Description" class="category-1">
+        <p class="comment">Project description here.</p>
+        <p>example</p>
+      </subsection>
+      <subsection name="Resources" class="category-2">
+        <p class="comment">Example resources to use for the project.</p>
+        <h4>Suggested resources</h4>
+        <p class="comment">Suggested resources to use for this project</p>
+        <p>no</p>
+        <h4>Used resources</h4>
+        <p class="comment">Used resources for the project.</p>
+        <p>no</p>
+      </subsection>
+      <subsection name="Participants" class="category-3">
+        <p class="comment">Information about the people responsible for the creation of the project.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>University Degree</th>
+              <th>Year of study</th>
+              <th>Student ID number</th>
+              <th>Tasks</th>
+              <th>Man-hours</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Momchil</td>
+              <td>Ignatov</td>
+              <td>Software Engineering</td>
+              <td>3</td>
+              <td>62113</td>
+              <td>backend</td>  
+              <td>30</td>
+            </tr>
+             <tr>
+              <td/>
+              <td/>
+              <td/>
+              <td/>
+              <td/>
+              <td/>  
+              <td/>
+            </tr>    
+             <tr>
+              <td/>
+              <td/>
+              <td/>
+              <td/>
+              <td/>
+              <td/>  
+              <td/>
+            </tr>          
+          </tbody>
+        </table>
+      </subsection>
+      <subsection name="Github" class="category-1">
+        <p class="comment">Link to Github project here.</p>
+        <p>https://github.com/m-ignatov/FMI-WEB-PROJECT</p>
+      </subsection>
+      <subsection name="Project presentation" class="category-2">
+      <p><b><u>Date</u></b></p>
+      <p>2020-07-22</p>
+      <p><b><u>Time</u></b></p>
+      <p>00:00:00</p>
+      <p><b><u>Link to BBB</u></b></p>
+      <p>BBB</p>
+      </subsection>
+    </section><section name="6. Presentations generator">
+       <subsection name="Description" class="category-1">
+        <p class="comment">Project description here.</p>
+        <p>Automatic generation and customization of presentations</p>
+      </subsection>
+      <subsection name="Resources" class="category-2">
+        <p class="comment">Example resources to use for the project.</p>
+        <h4>Suggested resources</h4>
+        <p class="comment">Suggested resources to use for this project</p>
+        <p>no</p>
+        <h4>Used resources</h4>
+        <p class="comment">Used resources for the project.</p>
+        <p>yes</p>
+      </subsection>
+      <subsection name="Participants" class="category-3">
+        <p class="comment">Information about the people responsible for the creation of the project.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>University Degree</th>
+              <th>Year of study</th>
+              <th>Student ID number</th>
+              <th>Tasks</th>
+              <th>Man-hours</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ignat</td>
+              <td>Ignatov</td>
+              <td>KN</td>
+              <td>4</td>
+              <td>33333</td>
+              <td>allthings</td>  
+              <td>23</td>
+            </tr>
+             <tr>
+              <td>Deyan</td>
+              <td>Pashov</td>
+              <td>Computer Science</td>
+              <td>4</td>
+              <td>62999</td>
+              <td>multitasking</td>  
+              <td>40</td>
+            </tr>    
+             <tr>
+              <td/>
+              <td/>
+              <td/>
+              <td/>
+              <td/>
+              <td/>  
+              <td/>
+            </tr>          
+          </tbody>
+        </table>
+      </subsection>
+      <subsection name="Github" class="category-1">
+        <p class="comment">Link to Github project here.</p>
+        <p>https://github.com/prezi/presentationsabc</p>
+      </subsection>
+      <subsection name="Project presentation" class="category-2">
+      <p><b><u>Date</u></b></p>
+      <p>2020-07-09</p>
+      <p><b><u>Time</u></b></p>
+      <p>18:00:00</p>
+      <p><b><u>Link to BBB</u></b></p>
+      <p>BBB</p>
+      </subsection>
+    </section><section name="7. Panorama Viewer">
+       <subsection name="Description" class="category-1">
+        <p class="comment">Project description here.</p>
+        <p>View and anotate 360 Panoramas</p>
+      </subsection>
+      <subsection name="Resources" class="category-2">
+        <p class="comment">Example resources to use for the project.</p>
+        <h4>Suggested resources</h4>
+        <p class="comment">Suggested resources to use for this project</p>
+        <p>https://chrome.google.com/webstore/detail/panorama-viewer</p>
+        <h4>Used resources</h4>
+        <p class="comment">Used resources for the project.</p>
+        <p>no</p>
+      </subsection>
+      <subsection name="Participants" class="category-3">
+        <p class="comment">Information about the people responsible for the creation of the project.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>University Degree</th>
+              <th>Year of study</th>
+              <th>Student ID number</th>
+              <th>Tasks</th>
+              <th>Man-hours</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ivan</td>
+              <td>Ivanov</td>
+              <td>Software Engineering</td>
+              <td>3</td>
+              <td>61111</td>
+              <td>backend</td>  
+              <td>31</td>
+            </tr>
+             <tr>
+              <td>Gergana</td>
+              <td>Pesheva</td>
+              <td>Software Engineering</td>
+              <td>2</td>
+              <td>633333</td>
+              <td>frontend</td>  
+              <td>29</td>
+            </tr>    
+             <tr>
+              <td/>
+              <td/>
+              <td/>
+              <td/>
+              <td/>
+              <td/>  
+              <td/>
+            </tr>          
+          </tbody>
+        </table>
+      </subsection>
+      <subsection name="Github" class="category-1">
+        <p class="comment">Link to Github project here.</p>
+        <p>https://github.com/ivan.ivanov/puffin</p>
+      </subsection>
+      <subsection name="Project presentation" class="category-2">
+      <p><b><u>Date</u></b></p>
+      <p>2020-07-22</p>
+      <p><b><u>Time</u></b></p>
+      <p>16:50:00</p>
+      <p><b><u>Link to BBB</u></b></p>
+      <p>BBB</p>
+      </subsection>
+    </section><section name="9. Calendar">
+       <subsection name="Description" class="category-1">
+        <p class="comment">Project description here.</p>
+        <p>Automatic generation and customization of presentations</p>
+      </subsection>
+      <subsection name="Resources" class="category-2">
+        <p class="comment">Example resources to use for the project.</p>
+        <h4>Suggested resources</h4>
+        <p class="comment">Suggested resources to use for this project</p>
+        <p>https://www.visme.co/presentation-maker</p>
+        <h4>Used resources</h4>
+        <p class="comment">Used resources for the project.</p>
+        <p>yes</p>
+      </subsection>
+      <subsection name="Participants" class="category-3">
+        <p class="comment">Information about the people responsible for the creation of the project.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>University Degree</th>
+              <th>Year of study</th>
+              <th>Student ID number</th>
+              <th>Tasks</th>
+              <th>Man-hours</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dimitar</td>
+              <td>Radoslavov</td>
+              <td>Computer Science</td>
+              <td>4</td>
+              <td>60999</td>
+              <td>allinone</td>  
+              <td>99</td>
+            </tr>
+             <tr>
+              <td>Dimitrina</td>
+              <td>Stoyanova</td>
+              <td>Software Engineering</td>
+              <td>3</td>
+              <td>55999</td>
+              <td>creating of presentations</td>  
+              <td>100</td>
+            </tr>    
+             <tr>
+              <td>Preslava</td>
+              <td>Todorova</td>
+              <td>Maths and Science</td>
+              <td>3</td>
+              <td>22334</td>
+              <td>templates</td>  
+              <td>50</td>
+            </tr>          
+          </tbody>
+        </table>
+      </subsection>
+      <subsection name="Github" class="category-1">
+        <p class="comment">Link to Github project here.</p>
+        <p>https://github.com/random.ivanov/presentationmaker</p>
+      </subsection>
+      <subsection name="Project presentation" class="category-2">
+      <p><b><u>Date</u></b></p>
+      <p>2020-07-09</p>
+      <p><b><u>Time</u></b></p>
+      <p>14:02:00</p>
       <p><b><u>Link to BBB</u></b></p>
       <p>BBB</p>
       </subsection>

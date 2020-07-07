@@ -1,7 +1,7 @@
 :root {
-    --orange-scheme-1: #FFA351;
-    --orange-scheme-2: #FFBE7B;
-    --orange-scheme-3: #EED971;
+    --marsala-scheme-1: #567572;
+    --marsala-scheme-2: #964F4C;
+    --marsala-scheme-3: #696667;
 }
 
 body {
@@ -15,18 +15,18 @@ section {
 }
 
 .category-1 {
-    background-color: var(--orange-scheme-1);
+    background-color: var(--marsala-scheme-1);
     color: white;
 }
 
 .category-2 {
-    background-color: var(--orange-scheme-2);
+    background-color: var(--marsala-scheme-2);
     color: white;
 }
 
 .category-3 {
-    background-color: var(--orange-scheme-3);
-    color: white;
+    background-color: var(--marsala-scheme-3);
+    color: black;
 }
 
 .comment {

@@ -1,7 +1,9 @@
 :root {
-    --green-scheme-1: #0A5E2A;
-    --green-scheme-2: #6DAC4F;
-    --green-scheme-3: #EFEFE8;
+    --uncorked-scheme-1: #7f056e;
+    --uncorked-scheme-2: #c09247;
+    --uncorked-scheme-3: #cab387;
+    --uncorked-scheme-4: #f2ebe0;
+    --comment-color: #000;
 }
 
 body {
@@ -15,20 +17,21 @@ section {
 }
 
 .category-1 {
-    background-color: var(--green-scheme-1);
-    color: var(--green-scheme-3);
+    background-color: var(--uncorked-scheme-2);
+    color: white;
 }
 
 .category-2 {
-    background-color: var(--green-scheme-2);
-    color: var(--green-scheme-3);
+    background-color: var(--uncorked-scheme-3);
+    color: white;
 }
 
 .category-3 {
-    background-color: var(--green-scheme-3);
-    color: var(--green-scheme-1);
+    background-color: var(--uncorked-scheme-4);
+    color: black;
 }
 
 .comment {
     font-style: italic;
+    color: var(--comment-color);
 }
