@@ -1,0 +1,34 @@
+:root {
+    --green-scheme-1: #0A5E2A;
+    --green-scheme-2: #6DAC4F;
+    --green-scheme-3: #EFEFE8;
+}
+
+body {
+    padding: 0px;
+}
+
+section {
+    min-height: 100px;
+    margin: 0px;
+    padding: 10px 30px 30px;
+}
+
+.category-1 {
+    background-color: var(--green-scheme-1);
+    color: var(--green-scheme-3);
+}
+
+.category-2 {
+    background-color: var(--green-scheme-2);
+    color: var(--green-scheme-3);
+}
+
+.category-3 {
+    background-color: var(--green-scheme-3);
+    color: var(--green-scheme-1);
+}
+
+.comment {
+    font-style: italic;
+}
