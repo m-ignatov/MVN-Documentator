@@ -6,7 +6,6 @@ const onFormSubmitted = event => {
 
     const fileInputName = 'dataFile';
     const file = document.getElementById(fileInputName).files[0];
-    const resultLabel = document.getElementById('result');
 
     if (!file) {
         window.alert("No file chosen");
@@ -21,7 +20,7 @@ const onFormSubmitted = event => {
     const formData = new FormData();
     formData.append(fileInputName, file);
     formData.append("chosenTheme", activeOption); //from generateContent.js takes the activeOption var which indicates the choosen theme 
-    resultLabel.innerText = 'Generating...';
+    generateButton.innerText = 'GENERATING...';
 
     fetch('./endpoints/upload.php', {
             method: 'POST',
@@ -31,12 +30,11 @@ const onFormSubmitted = event => {
         .then(response => {
             if (response.success) {
                 window.open('maven/target/site/index.html');
-                resultLabel.innerText = "Success";
             } else {
-                resultLabel.innerText = "Failed";
+                alert(response.message);
             }
-            // resultLabel.innerText = response.message;
-            // generateButton.disabled = false;
+            generateButton.innerText = "GENERATE";
+            generateButton.disabled = false;
         });
 };
 
