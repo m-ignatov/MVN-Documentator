@@ -56,7 +56,8 @@ class XmlProcessor
 
                     $tableBody = $doctosave->getElementsByTagName("tbody")[$index];
 
-                    for ($studentIndex = 0; $studentIndex < 3; $studentIndex++) {
+                    $studentCount = min(count($students), 3);
+                    for ($studentIndex = 0; $studentIndex < $studentCount; $studentIndex++) {
                         $currentRow = $tableBody->getElementsByTagName("tr")[$studentIndex];
                         $student_row = $students[$studentIndex];
 
