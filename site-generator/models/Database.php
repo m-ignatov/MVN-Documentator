@@ -11,6 +11,8 @@ class Database
         $userName = "root";
         $userPassword = "";
 
+        $this->initDbSchema($dbhost, $userName, $userPassword);
+
         try {
             $this->connection = new PDO(
                 "mysql:host=$dbhost;dbname=$dbName",
@@ -25,7 +27,7 @@ class Database
             );
         } catch (PDOException $err) {
             $errorMessage = '';
-            
+
             switch ($err->getCode()) {
                 case 1045:
                     $errorMessage = "Invalid database credentials";
@@ -46,5 +48,16 @@ class Database
     public function getConnection()
     {
         return $this->connection;
+    }
+
+    private function initDbSchema($dbhost, $userName, $userPassword)
+    {
+        $initalConnection = new PDO(
+            "mysql:host=$dbhost",
+            $userName,
+            $userPassword
+        );
+        $query = file_get_contents('../db_schema_changelog.sql');
+        $initalConnection->prepare($query)->execute();
     }
 }

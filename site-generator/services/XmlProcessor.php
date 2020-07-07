@@ -38,7 +38,9 @@ class XmlProcessor
                     }
 
                     $currentSection = $doctosave->getElementsByTagName("section")[$index];
-                    $sectionName = $row['projectID'] . ". " . $row['projectName'];
+                    
+                    $projectID = $row['projectID'];
+                    $sectionName = $projectID . ". " . $row['projectName'];
                     $currentSection->setAttribute("name", $sectionName);
                     $subsections = $currentSection->getElementsByTagName("subsection");
 
@@ -51,12 +53,11 @@ class XmlProcessor
                     $subsections[4]->getElementsByTagName("p")[5]->nodeValue = $row['presentationLink'];
                     $doctosave->save($this->filePath);
 
-                    $projectID = $row['projectID'];
                     $students = $this->projectService->fetchStudentsByProjectId($projectID);
 
                     $tableBody = $doctosave->getElementsByTagName("tbody")[$index];
-
                     $studentCount = min(count($students), 3);
+                    
                     for ($studentIndex = 0; $studentIndex < $studentCount; $studentIndex++) {
                         $currentRow = $tableBody->getElementsByTagName("tr")[$studentIndex];
                         $student_row = $students[$studentIndex];
