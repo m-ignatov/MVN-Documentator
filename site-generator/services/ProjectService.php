@@ -19,25 +19,23 @@ class ProjectService
     public function persistStudents($file): void
     {
         if (($handle = fopen($file, "r")) !== FALSE) {
-            $index = 0;
-            $studentIndexArray = [9, 16, 23];
-            $flag = true;
+            $skipHeaderRow = true;
 
-            while (($row = fgetcsv($handle, 4096, ",")) !== FALSE) {
-                if ($flag) {
-                    $flag = false;
+            while (($row = fgetcsv($handle, ",")) !== FALSE) {
+                if ($skipHeaderRow) {
+                    $skipHeaderRow = false;
                     continue;
                 }
-                $index = 0;
-                while ($index < 3) {
-                    $studentIndex = $studentIndexArray[$index];
-                    if (!$this->isValidStudent(array_slice($row, $studentIndex, 7))) {
-                        $index++;
+                $studentIndex = 9;
+                $step = 7;
+
+                while (isset($row[$studentIndex])) {
+                    if (!$this->isValidStudent(array_slice($row, $studentIndex, $step))) {
+                        $studentIndex += $step;
                         continue;
                     }
-
                     $this->executeQuery('INSERT INTO students (projectID, firstName, lastName, courseName, courseYear, facultyNumber, projectTasks, manHours) VALUES ("' . $row[0] . '","' . $row[$studentIndex] . '","' . $row[$studentIndex + 1] . '","' . $row[$studentIndex + 2] . '","' . $row[$studentIndex + 3] . '","' . $row[$studentIndex + 4] . '","' . $row[$studentIndex + 5] . '","' . $row[$studentIndex + 6] . '")');
-                    $index++;
+                    $studentIndex += $step;
                 }
             }
             fclose($handle);

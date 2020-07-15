@@ -1,19 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
-  <properties>
-    <title>Documentation</title>
-    <author email="user@company.com">Victoria Dobreva and Momchil Ignatov</author>
-  </properties>
-
-  <head>
-    <link rel="stylesheet" type="text/css" href="css/xdoc-style.css"/>
-    <meta/>
-  </head>
-
-  <body>
-      <section name="">
-        <subsection name="Description" class="category-1">
+    <section name="">
+       <subsection name="Description" class="category-1">
         <p class="comment">Project description here.</p>
         <p></p>
       </subsection>
@@ -49,30 +36,12 @@
               <td></td>
               <td></td>  
               <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>  
-              <td></td>
-            </tr>      
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>  
-              <td></td>
-            </tr>            
+            </tr>        
           </tbody>
         </table>
       </subsection>
-      <subsection name="Github" class="category-1">
-        <p class="comment">Link to Github project here.</p>
+      <subsection name="GitHub" class="category-1">
+        <p class="comment">Link to GitHub project here.</p>
         <p></p>
       </subsection>
       <subsection name="Project presentation" class="category-2">
@@ -83,6 +52,4 @@
       <p><b><u>Link to BBB</u></b></p>
       <p></p>
       </subsection>
-    </section></body>
-
-</document>
+    </section>

@@ -7,6 +7,9 @@ const onFormSubmitted = event => {
     const fileInputName = 'dataFile';
     const file = document.getElementById(fileInputName).files[0];
 
+    const languageSelect = document.getElementById('languageSelect');
+    const selectedLanguage = languageSelect.options[languageSelect.selectedIndex].value;
+
     if (!file) {
         window.alert("No file chosen");
         return;
@@ -20,6 +23,7 @@ const onFormSubmitted = event => {
     const formData = new FormData();
     formData.append(fileInputName, file);
     formData.append("chosenTheme", activeOption); //from generateContent.js takes the activeOption var which indicates the choosen theme 
+    formData.append("language", selectedLanguage);
     generateButton.innerText = 'GENERATING...';
 
     fetch('./endpoints/upload.php', {

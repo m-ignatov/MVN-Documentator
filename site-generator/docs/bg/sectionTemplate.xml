@@ -1,0 +1,55 @@
+
+<section name="">
+        <subsection name="Описание" class="category-1">
+        <p class="comment">Описание на проекта.</p>
+        <p></p>
+      </subsection>
+      <subsection name="Ресурси" class="category-2">
+        <p class="comment">Ресурси, използвани за проекта.</p>
+        <h4>Препоръчани ресурси</h4>
+        <p class="comment">Препоръчани ресурси за проекта.</p>
+        <p></p>
+        <h4>Използвани ресурси</h4>
+        <p class="comment">Използвани ресурси за проекта.</p>
+        <p></p>
+      </subsection>
+      <subsection name="Участници" class="category-3">
+        <p class="comment">Информация за участниците в проекта.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Име</th>
+              <th>Фамилия</th>
+              <th>Специалност</th>
+              <th>Година на обучение</th>
+              <th>Факултетен номер</th>
+              <th>Задачи</th>
+              <th>Часове (работа)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>  
+              <td></td>
+            </tr>           
+          </tbody>
+        </table>
+      </subsection>
+      <subsection name="GitHub" class="category-1">
+        <p class="comment">Линк към GitHub на проекта.</p>
+        <p></p>
+      </subsection>
+      <subsection name="Презентация" class="category-2">
+      <p><b><u>Дата</u></b></p>
+      <p></p>
+      <p><b><u>Час</u></b></p>
+      <p></p>
+      <p><b><u>Линк към BBB</u></b></p>
+      <p></p>
+      </subsection>
+    </section>

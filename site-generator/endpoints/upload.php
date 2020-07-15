@@ -33,8 +33,8 @@ try {
 }
 
 // Process data
-$filePath = "../maven/content/xdoc/index.xml.vm";
-$xmlProcessor = new XmlProcessor($filePath, $projectService);
+$language = $_POST['language'];
+$xmlProcessor = new XmlProcessor($projectService, $language);
 
 try {
     $xmlProcessor->generate();

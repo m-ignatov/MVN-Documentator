@@ -2,26 +2,41 @@
 
 class XmlProcessor
 {
+    private $mavenBase = "../maven/content/";
     private $filePath;
-    private $projectService;
 
-    public function __construct($filePath, $projectService)
+    private $templatePath;
+    private $sectionPath;
+    private $sitePath;
+
+    private $projectService;
+    private $language;
+
+    public function __construct($projectService, $language)
     {
-        $this->filePath = $filePath;
         $this->projectService = $projectService;
+        $this->language = $language;
+
+        $this->filePath = $this->mavenBase . "xdoc/index.xml.vm";
+
+        $this->templatePath = "../docs/" . $language . "/IndexXmlTemplate.xml";
+        $this->sectionPath = "../docs/" . $language . "/sectionTemplate.xml";
+        $this->sitePath = "../docs/" . $language . "/site.xml";
     }
 
     public function generate()
     {
         try {
-            copy('../docs/IndexXmlTemplate.xml', '../maven/content/xdoc/index.xml.vm');
+            copy($this->sitePath, $this->mavenBase . "site.xml");
+            copy($this->templatePath, $this->filePath);
 
             if (file_exists($this->filePath)) {
                 $studentsFields = ["firstName", "lastName", "courseName", "courseYear", "facultyNumber", "projectTasks", "manHours"];
+
                 $prjs = $this->projectService->fetchProjects();
 
                 $newdoc = new DOMDocument;
-                $newdoc->loadXML(file_get_contents("../docs/sectionTemplate.xml")); // used to copy the <section> elememt as a template for all rows(projects) of the CSV. Easier than creating all <section> elements here, and better than copying the existing section because information is copied as well
+                $newdoc->loadXML(file_get_contents($this->sectionPath)); // used to copy the <section> elememt as a template for all rows(projects) of the CSV. Easier than creating all <section> elements here, and better than copying the existing section because information is copied as well
                 $sectionNode = $newdoc->getElementsByTagName("section")->item(0);
 
                 $index = 0;
@@ -38,7 +53,7 @@ class XmlProcessor
                     }
 
                     $currentSection = $doctosave->getElementsByTagName("section")[$index];
-                    
+
                     $projectID = $row['projectID'];
                     $sectionName = $projectID . ". " . $row['projectName'];
                     $currentSection->setAttribute("name", $sectionName);
@@ -56,14 +71,19 @@ class XmlProcessor
                     $students = $this->projectService->fetchStudentsByProjectId($projectID);
 
                     $tableBody = $doctosave->getElementsByTagName("tbody")[$index];
-                    $studentCount = min(count($students), 3);
-                    
-                    for ($studentIndex = 0; $studentIndex < $studentCount; $studentIndex++) {
+
+                    for ($studentIndex = 1; $studentIndex < count($students); $studentIndex++) {
+                        $tableRow = $doctosave->getElementsByTagName("tr")->item(1);
+                        $tableBody->appendChild($tableRow->cloneNode(true));
+                    }
+                    $doctosave->save($this->filePath);
+
+                    for ($studentIndex = 0; $studentIndex < count($students); $studentIndex++) {
                         $currentRow = $tableBody->getElementsByTagName("tr")[$studentIndex];
-                        $student_row = $students[$studentIndex];
+                        $studentRowName = $students[$studentIndex];
 
                         for ($i = 0; $i < 7; $i++) {
-                            $currentRow->getElementsByTagName("td")[$i]->nodeValue = $student_row[$studentsFields[$i]];
+                            $currentRow->getElementsByTagName("td")[$i]->nodeValue = $studentRowName[$studentsFields[$i]];
                         }
                         $doctosave->save($this->filePath);
                     }
@@ -72,7 +92,7 @@ class XmlProcessor
                 }
             }
         } catch (Exception $e) {
-            throw new Exception("Site processing failed");
+            throw $e;
         }
     }
 }
