@@ -1,0 +1,36 @@
+:root {
+    --harbour-scheme-1: #344649;
+    --harbour-scheme-2: #6d7a8a;
+    --harbour-scheme-3: #a4c6c4;
+    --harbour-scheme-4: #e1e7e9;
+    --comment-color: #000;
+}
+
+body {
+    padding: 0px;
+}
+
+section {
+    min-height: 100px;
+    margin: 0px;
+    padding: 10px 30px 30px;
+}
+
+.category-1 {
+    background-color: var(--harbour-scheme-2);
+    color: var(--harbour-scheme-4);
+}
+
+.category-2 {
+    background-color: var(--harbour-scheme-3);
+    color: white;
+}
+
+.category-3 {
+    background-color: var(--harbour-scheme-4);
+    color: var(--harbour-scheme-2);
+}
+
+.comment {
+    font-style: italic;
+}

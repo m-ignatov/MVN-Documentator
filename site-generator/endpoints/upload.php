@@ -1,7 +1,7 @@
 <?php
 require_once "../services/CsvValidator.php";
 require_once "../services/ProjectService.php";
-require_once "../models/Project.php";
+require_once "../services/XmlProcessor.php";
 
 $fileInputName = 'dataFile';
 
@@ -22,26 +22,44 @@ try {
 // Load data to DB
 $filePath = str_replace('\\', '/', $file['tmp_name']);
 
-try {
-    $projectService = new ProjectService();
+$projectService = new ProjectService();
 
-    $projectService->persist($filePath);
-    $result = $projectService->fetchAll();
+try {
+    $projectService->persistProjects($filePath);
+    $projectService->persistStudents($filePath);
 } catch (Exception $e) {
     sendResponse($e->getMessage(), false);
     return;
 }
 
-// TODO: Process data with SimpleXML
+// Process data
+$language = $_POST['language'];
+$xmlProcessor = new XmlProcessor($projectService, $language);
+
+try {
+    $xmlProcessor->generate();
+} catch (Exception $e) {
+    sendResponse($e->getMessage(), false);
+    return;
+}
+
+// Add style template
+$chosenTheme = $_POST['chosenTheme'];
+$themesCssStyles = ['brisk', 'compote', 'condiments', 'coral', 'green', 'harbour', 'harvest', 'marsala', 'pebble', 'scholar', 'sky', 'uncorked'];
+//css stylesheets names are xdoc-style-brisk, xdoc-style-compote etc. will use below for setting theme style according to the chosen option
+
+$cssPath = '../style/themes/xdoc-style-' . $themesCssStyles[intval($chosenTheme)] . '.css';
+copy($cssPath, '../maven/content/resources/css/xdoc-style.css');
 
 
 // Generate site
 exec('cd ../maven & mvn clean site:site', $output);
-
 $outputString = implode("\n", $output);
+
+$message = strpos($outputString, 'BUILD SUCCESS') ? 'Site generation success' : 'Site generation failed';
 $success = strpos($outputString, 'BUILD SUCCESS') ? true : false;
 
-sendResponse($outputString, $success);
+sendResponse($message, $success);
 
 function sendResponse($message, $success)
 {

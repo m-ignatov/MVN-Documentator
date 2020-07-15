@@ -2,37 +2,50 @@
 <html lang="en">
 
 <head>
-       <meta charset="UTF-8">
-       <title>Maven Site Generator
-       </title>
-       <script src="script/upload.js"
-               defer></script>
-       <link rel="stylesheet"
-             type="text/css"
-             href="style/main.css">
+    <meta charset="UTF-8">
+    <title>Maven Site Generator
+    </title>
+    <script src="script/generateContent.js"></script>
+    <script src="script/upload.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <script src="https://kit.fontawesome.com/0b4303f61f.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="img/mvn-logo-v2-resized.png">
 </head>
 
-<body>
-       <h1>MVN</h1>
-       <div class="container">
-              <form id="generateForm">
-                     <div class="form-container">
-                            <div class="column">
-                                   <label for="dataFile">File:</label>
-                                   <input type="file"
-                                          id="dataFile"
-                                          name="dataFile"
-                                          accept=".csv"
-                                          required />
-                            </div>
-                            <div>
-                                   <button id="generateButton">GENERATE</button>
-                            </div>
-                     </div>
-              </form>
-              <br />
-              <p id="result"></p>
-       </div>
+<body onload="setActiveOption()">
+    <div id="content">
+        <header>
+            <img src="img/mvn-logo-v2-resized.png" id="logo" alt="logo">
+        </header>
+        <div class="container">
+            <h1>1. Upload a CSV file</h1>
+            <form id="generateForm">
+                <div class="form-container">
+                    <div id="upload">
+                        <label for="dataFile" class="custom-upload" id="uploadLabel"><i class="fa fa-cloud-upload" aria-hidden="true"></i>Upload</label>
+                        <input type="file" id="dataFile" name="dataFile" accept=".csv" required />
+                        <p id="upload-error"></p>
+                    </div>
+                    <h1>2. Choose a theme</h1>
+                    <div id="themes-container">
+                    </div>
+                    <h1>3. Choose a language</h1>
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="bg">Български</option>
+                    </select>
+                </div>
+                <div>
+                    <button class="btn" id="generateButton">GENERATE</button>
+                </div>
+        </div>
+        </form>
+        <br />
+    </div>
+    </div>
+    <footer>
+        <p>MVN Site Generator&#8482;</p>
+    </footer>
 </body>
 
 </html>

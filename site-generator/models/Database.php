@@ -1,21 +1,20 @@
 <?php
+require_once '../Config.php';
 
 class Database
 {
     private $connection;
+    private $dbhost;
 
     public function __construct()
     {
-        $dbhost = "localhost";
-        $dbName = "maven_generator_db";
-        $userName = "root";
-        $userPassword = "";
+        $this->initDbSchema(Config::DB_HOST, Config::DB_USER, Config::DB_PASSWORD);
 
         try {
             $this->connection = new PDO(
-                "mysql:host=$dbhost;dbname=$dbName",
-                $userName,
-                $userPassword,
+                'mysql:host=' . Config::DB_HOST . ';dbname=' . Config::DB_NAME,
+                Config::DB_USER,
+                Config::DB_PASSWORD,
                 [
                     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
                     PDO::MYSQL_ATTR_LOCAL_INFILE => true,
@@ -25,7 +24,7 @@ class Database
             );
         } catch (PDOException $err) {
             $errorMessage = '';
-            
+
             switch ($err->getCode()) {
                 case 1045:
                     $errorMessage = "Invalid database credentials";
@@ -46,5 +45,16 @@ class Database
     public function getConnection()
     {
         return $this->connection;
+    }
+
+    private function initDbSchema($dbhost, $userName, $userPassword)
+    {
+        $initalConnection = new PDO(
+            "mysql:host=$dbhost",
+            $userName,
+            $userPassword
+        );
+        $query = file_get_contents('../db_schema_changelog.sql');
+        $initalConnection->prepare($query)->execute();
     }
 }

@@ -25,28 +25,5 @@ class CsvValidator
         if (!in_array($file['type'], self::$validExtensions)) {
             throw new Exception('File must be in CSV format');
         }
-        if (self::isInvalidData($file)) {
-            throw new Exception('File content is corrupted');
-        }
-    }
-
-    private static function isInvalidData($file)
-    {
-        $lengthArray = array();
-        $row = 1;
-
-        if (($fp = fopen($file['tmp_name'], 'r')) !== FALSE) {
-            while (($data = fgetcsv($fp, 1000, ',')) !== FALSE) {
-                $lengthArray[] = count($data);
-                $row++;
-            }
-            fclose($fp);
-        }
-
-        $lengthArray = array_unique($lengthArray);
-        if (count($lengthArray) == 1) {
-            return false;
-        }
-        return true;
     }
 }

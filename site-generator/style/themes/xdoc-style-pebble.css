@@ -1,0 +1,36 @@
+:root {
+    --pebble-scheme-1: #433f49;
+    --pebble-scheme-2: #91848f;
+    --pebble-scheme-3: #dcc2ad;
+    --pebble-scheme-4: #f3e7eb;
+    --comment-color: #000;
+}
+
+body {
+    padding: 0px;
+}
+
+section {
+    min-height: 100px;
+    margin: 0px;
+    padding: 10px 30px 30px;
+}
+
+.category-1 {
+    background-color: var(--pebble-scheme-2);
+    color: white;
+}
+
+.category-2 {
+    background-color: var(--pebble-scheme-3);
+    color: white;
+}
+
+.category-3 {
+    background-color: var(--pebble-scheme-4);
+    color: black;
+}
+
+.comment {
+    font-style: italic;
+}

@@ -6,30 +6,46 @@ const onFormSubmitted = event => {
 
     const fileInputName = 'dataFile';
     const file = document.getElementById(fileInputName).files[0];
-    const resultLabel = document.getElementById('result');
+
+    const languageSelect = document.getElementById('languageSelect');
+    const selectedLanguage = languageSelect.options[languageSelect.selectedIndex].value;
 
     if (!file) {
-        resultLabel.innerText = 'No file uploaded';
+        window.alert("No file chosen");
+        return;
+    }
+
+    if (activeOption == -1) {
+        window.alert("No theme chosen");
         return;
     }
 
     const formData = new FormData();
     formData.append(fileInputName, file);
-
-    resultLabel.innerText = 'Generating...';
+    formData.append("chosenTheme", activeOption); //from generateContent.js takes the activeOption var which indicates the choosen theme 
+    formData.append("language", selectedLanguage);
+    generateButton.innerText = 'GENERATING...';
 
     fetch('./endpoints/upload.php', {
-        method: 'POST',
-        body: formData,
-    })
+            method: 'POST',
+            body: formData,
+        })
         .then(response => response.json())
         .then(response => {
             if (response.success) {
                 window.open('maven/target/site/index.html');
+            } else {
+                alert(response.message);
             }
-            resultLabel.innerText = response.message;
+            generateButton.innerText = "GENERATE";
             generateButton.disabled = false;
         });
 };
 
 document.getElementById('generateForm').addEventListener('submit', onFormSubmitted);
+
+document.getElementById('upload').addEventListener('change', function() {
+    const fileInputName = 'dataFile';
+    const file = document.getElementById(fileInputName).files[0];
+    document.getElementById('uploadLabel').innerHTML = file.name;
+});

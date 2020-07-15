@@ -1,0 +1,35 @@
+:root {
+    --coral-scheme-1: #FC766A;
+    --coral-scheme-2: #B0B8B4;
+    --coral-scheme-3: #184A45;
+}
+
+body {
+    padding: 0px;
+}
+
+section {
+    min-height: 100px;
+    margin: 0px;
+    padding: 10px 30px 30px;
+}
+
+.category-1 {
+    background-color: var(--coral-scheme-1);
+    color: white;
+}
+
+.category-2 {
+    background-color: var(--coral-scheme-2);
+    color: var(--coral-scheme-3);
+}
+
+.category-3 {
+    background-color: var(--coral-scheme-3);
+    color: var(--coral-scheme-2);
+}
+
+.comment {
+    font-style: italic;
+    color: var(--comment-color);
+}
