@@ -4,7 +4,6 @@ require_once "../models/Database.php";
 class ProjectService
 {
     private $database;
-    private $currentProjects;
 
     public function __construct()
     {
