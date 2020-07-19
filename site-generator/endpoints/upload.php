@@ -24,6 +24,19 @@ $filePath = str_replace('\\', '/', $file['tmp_name']);
 
 $projectService = new ProjectService();
 
+//Set custom folder
+// TODO insert foldername in projects table
+$targetFolder = $_POST['folderName'];
+$targetPath = "../maven/target/".$targetFolder;
+$message = file_exists($targetPath)? 'This folder already exists. Choose another folder name':'Placeholder';
+$success =  file_exists($targetPath)? false:true;
+
+if(!$success)
+ {
+    sendResponse($message, $success);
+    exit;
+ }
+
 try {
     $projectService->persistProjects($filePath);
     $projectService->persistStudents($filePath);
@@ -53,7 +66,10 @@ copy($cssPath, '../maven/content/resources/css/xdoc-style.css');
 
 
 // Generate site
-exec('cd ../maven & mvn clean site:site', $output);
+exec('cd ../maven & mvn site', $output);
+
+rename("../maven/target/site", $targetPath);
+
 $outputString = implode("\n", $output);
 
 $message = strpos($outputString, 'BUILD SUCCESS') ? 'Site generation success' : 'Site generation failed';

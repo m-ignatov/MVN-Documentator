@@ -87,6 +87,17 @@ class XmlProcessor
                         }
                         $doctosave->save($this->filePath);
                     }
+
+                    //used to remove redundant rows in the table, which should not exist
+                    $currentTableRows = $tableBody->getElementsByTagName("tr");
+                    if($studentIndex != count($currentTableRows))
+                    {
+                        for($i = count($currentTableRows); --$i >= count($students); ){
+                            $toRemove = $currentTableRows->item($i);
+                            $toRemove->parentNode->removeChild($toRemove);
+                        }
+                    }
+
                     $index++;
                     $doctosave->save($this->filePath);
                 }

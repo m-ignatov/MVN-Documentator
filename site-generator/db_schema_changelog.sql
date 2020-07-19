@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS projects (
 
 CREATE TABLE IF NOT EXISTS students (
     projectID INT NOT NULL,
-    facultyNumber INT NOT NULL,
+    facultyNumber INT NOT NULL PRIMARY KEY,
     firstName VARCHAR(255) NOT NULL,
     lastName VARCHAR(255) NOT NULL,
     courseName VARCHAR(255) NOT NULL,

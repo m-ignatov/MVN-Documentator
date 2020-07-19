@@ -4,6 +4,7 @@ require_once "../models/Database.php";
 class ProjectService
 {
     private $database;
+    private $currentProjects;
 
     public function __construct()
     {
@@ -15,7 +16,6 @@ class ProjectService
         $this->executeQuery("LOAD DATA LOCAL INFILE '" . $file .
             "' INTO TABLE projects FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n' IGNORE 1 LINES (projectID, projectName, projectDescription, exampleResources, usedResources, githubLink, presentationDate, presentationTime, presentationLink)");
     }
-
     public function persistStudents($file): void
     {
         if (($handle = fopen($file, "r")) !== FALSE) {

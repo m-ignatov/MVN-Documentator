@@ -10,6 +10,8 @@ const onFormSubmitted = event => {
     const languageSelect = document.getElementById('languageSelect');
     const selectedLanguage = languageSelect.options[languageSelect.selectedIndex].value;
 
+    const folderName = document.getElementById('foldername').value;
+
     if (!file) {
         window.alert("No file chosen");
         return;
@@ -24,6 +26,7 @@ const onFormSubmitted = event => {
     formData.append(fileInputName, file);
     formData.append("chosenTheme", activeOption); //from generateContent.js takes the activeOption var which indicates the choosen theme 
     formData.append("language", selectedLanguage);
+    formData.append("folderName", folderName);
     generateButton.innerText = 'GENERATING...';
 
     fetch('./endpoints/upload.php', {
@@ -33,7 +36,7 @@ const onFormSubmitted = event => {
         .then(response => response.json())
         .then(response => {
             if (response.success) {
-                window.open('maven/target/site/index.html');
+                window.open('maven/target/' + folderName + '/index.html');
             } else {
                 alert(response.message);
             }
