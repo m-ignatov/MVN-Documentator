@@ -4,17 +4,20 @@ require_once "../models/Database.php";
 class ProjectService
 {
     private $database;
+    private $folder;
 
-    public function __construct()
+    public function __construct($folder)
     {
+        $this->folder = $folder;
         $this->database = new Database();
     }
 
     public function persistProjects($file): void
     {
         $this->executeQuery("LOAD DATA LOCAL INFILE '" . $file .
-            "' INTO TABLE projects FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n' IGNORE 1 LINES (projectID, projectName, projectDescription, exampleResources, usedResources, githubLink, presentationDate, presentationTime, presentationLink)");
+            "' INTO TABLE projects FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n' IGNORE 1 LINES (projectID, projectName, projectDescription, exampleResources, usedResources, githubLink, presentationDate, presentationTime, presentationLink) SET folderName = '" . $this->folder . "'");
     }
+
     public function persistStudents($file): void
     {
         if (($handle = fopen($file, "r")) !== FALSE) {
@@ -33,7 +36,7 @@ class ProjectService
                         $studentIndex += $step;
                         continue;
                     }
-                    $this->executeQuery('INSERT INTO students (projectID, firstName, lastName, courseName, courseYear, facultyNumber, projectTasks, manHours) VALUES ("' . $row[0] . '","' . $row[$studentIndex] . '","' . $row[$studentIndex + 1] . '","' . $row[$studentIndex + 2] . '","' . $row[$studentIndex + 3] . '","' . $row[$studentIndex + 4] . '","' . $row[$studentIndex + 5] . '","' . $row[$studentIndex + 6] . '")');
+                    $this->executeQuery('INSERT INTO students (projectID, firstName, lastName, courseName, courseYear, facultyNumber, projectTasks, manHours, folderName) VALUES ("' . $row[0] . '","' . $row[$studentIndex] . '","' . $row[$studentIndex + 1] . '","' . $row[$studentIndex + 2] . '","' . $row[$studentIndex + 3] . '","' . $row[$studentIndex + 4] . '","' . $row[$studentIndex + 5] . '","' . $row[$studentIndex + 6] . '","' . $this->folder . '")');
                     $studentIndex += $step;
                 }
             }
@@ -53,21 +56,21 @@ class ProjectService
 
     public function fetchProjects(): array
     {
-        $result = $this->executeQuery("SELECT * FROM projects");
+        $result = $this->executeQuery('SELECT * FROM projects WHERE folderName = "' . $this->folder . '"');
         return $result->fetchAll();
     }
 
     public function fetchStudentsByProjectId($projectId): array
     {
-        $params = [':value', $projectId, PDO::PARAM_INT];
-        $result = $this->executeQuery("SELECT * FROM students WHERE projectID = :value", $params);
+        $params = [':value', $projectId, PDO::PARAM_INT, ':folder', $this->folder, PDO::PARAM_STR_CHAR];
+        $result = $this->executeQuery("SELECT * FROM students WHERE projectID = :value AND folderName = :folder", $params);
 
         return $result->fetchAll();
     }
 
     public function fetchStudents(): array
     {
-        $result = $this->executeQuery("SELECT * FROM students");
+        $result = $this->executeQuery('SELECT * FROM students WHERE folderName="' . $this->folder . '"');
         return $result->fetchAll();
     }
 
@@ -77,7 +80,9 @@ class ProjectService
         $statement = $connection->prepare($query);
 
         if ($params) {
-            $statement->bindParam($params[0], $params[1], $params[2]);
+            for ($i = 0; $i < count($params); $i += 3) {
+                $statement->bindParam($params[$i], $params[$i + 1], $params[$i + 2]);
+            }
         }
         if (!$statement->execute()) {
             throw new Exception("Request failed, try again later");

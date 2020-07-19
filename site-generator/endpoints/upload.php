@@ -19,7 +19,7 @@ try {
     return;
 }
 
-//Set custom folder
+// Set custom folder
 $targetFolder = $_POST['folderName'];
 $targetPath = "../maven/target/" . $targetFolder;
 $message = file_exists($targetPath) ? 'This folder already exists. Choose another folder name' : 'Placeholder';
@@ -33,7 +33,7 @@ if (!$success) {
 // Load data to DB
 $filePath = str_replace('\\', '/', $file['tmp_name']);
 
-$projectService = new ProjectService();
+$projectService = new ProjectService($targetFolder);
 
 try {
     $projectService->persistProjects($filePath);
