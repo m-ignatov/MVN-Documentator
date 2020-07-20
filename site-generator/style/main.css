@@ -56,7 +56,8 @@ header h1 {
     margin-top: 1em;
 }
 
-.container footer a:hover, .container footer a:focus {
+.container footer a:hover,
+.container footer a:focus {
     color: #39bfd3;
 }
 
@@ -165,7 +166,8 @@ body>footer {
     width: 1px;
 }
 
-.theme-option img, .selected-option img {
+.theme-option img,
+.selected-option img {
     width: 200px;
     height: 200px;
     cursor: pointer;
@@ -208,7 +210,7 @@ body>footer {
 }
 
 .selected-option {
-    box-shadow: var(--brisk-scheme-2) 0 0 10px;
+    box-shadow: var(--brisk-scheme-1) 0 0 10px;
     transform: scale(1.01);
     transition: all 0.3s ease-in-out 0.1s;
 }
@@ -224,4 +226,85 @@ i {
 #languageSelect {
     width: 10rem;
     height: 2.5rem;
+}
+
+.form-group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 400px;
+    margin: 10px 0px;
+}
+
+.form-field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.3rem;
+    color: black;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.form-field::placeholder {
+    color: transparent;
+}
+
+.form-field:placeholder-shown~.form-label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+}
+
+.form-label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #9b9b9b;
+}
+
+.form-field:focus {
+    padding-bottom: 6px;
+    font-weight: 400;
+    border-width: 3px;
+    /*   border-image: linear-gradient(to right, #0d47a1, #90caf9);*/
+    border-image: linear-gradient(to right, var(--brisk-scheme-2), var(--brisk-scheme-3));
+    border-image-slice: 1;
+}
+
+.form-field:focus~.form-label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: var(--dark-blue);
+    font-weight: 700;
+}
+
+
+/* reset input */
+
+.form-field:required,
+.form-field:invalid {
+    box-shadow: none;
+}
+
+.div-section {
+    width: 50%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.comment {
+    color: var( --brisk-scheme-1);
+    font-style: italic;
 }

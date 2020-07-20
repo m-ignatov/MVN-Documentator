@@ -1,3 +1,6 @@
 # Ignore Maven generated content
 
 */maven/target
+*/maven/content/site.xml
+*/maven/content/xdoc/index.xml.vm
+*/maven/content/resources/css/xdoc-style.css

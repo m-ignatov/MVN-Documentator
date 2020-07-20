@@ -5,7 +5,8 @@ CREATE DATABASE IF NOT EXISTS maven_generator_db
 USE maven_generator_db;
 
 CREATE TABLE IF NOT EXISTS projects (
-    projectID INT NOT NULL PRIMARY KEY,
+    folderName VARCHAR(255) NOT NULL,
+    projectID INT NOT NULL,
     projectName VARCHAR(255) NOT NULL,
     projectDescription TEXT NOT NULL,
     exampleResources TEXT,
@@ -13,10 +14,12 @@ CREATE TABLE IF NOT EXISTS projects (
     githubLink VARCHAR(255),
     presentationDate DATE NOT NULL,
     presentationTime TIME NOT NULL,
-    presentationLink VARCHAR(255) NOT NULL
+    presentationLink VARCHAR(255) NOT NULL,
+    PRIMARY KEY (folderName, projectID)
 );
 
 CREATE TABLE IF NOT EXISTS students (
+    folderName VARCHAR(255) NOT NULL,
     projectID INT NOT NULL,
     facultyNumber INT NOT NULL,
     firstName VARCHAR(255) NOT NULL,
@@ -25,6 +28,6 @@ CREATE TABLE IF NOT EXISTS students (
     courseYear INT NOT NULL,
     projectTasks TEXT NOT NULL,
     manHours INT NOT NULL,
-    CONSTRAINT foreign_key_constraint FOREIGN KEY (projectID)
-    REFERENCES projects(projectID)
+    CONSTRAINT foreign_key_constraint FOREIGN KEY (folderName, projectID)
+    REFERENCES projects(folderName, projectID)
 );
