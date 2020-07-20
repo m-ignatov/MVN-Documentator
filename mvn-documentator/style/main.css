@@ -80,16 +80,15 @@ body>footer {
     text-align: center;
     background-color: var(--scholar-scheme-1);
     color: #fff;
-    height: 100px;
+    height: 130px;
     position: relative;
     bottom: 0;
     right: 0;
     left: 0;
     width: 100%;
-    display: flex;
     justify-content: center;
     align-content: center;
-    margin-top: 100px;
+    margin-top: 130px;
 }
 
 .rectangle {
@@ -307,4 +306,19 @@ i {
 .comment {
     color: var( --brisk-scheme-1);
     font-style: italic;
+}
+
+footer span {
+	opacity: 0;
+	transition: all 1s ease;
+	writing-mode: vertical-rl;
+	text-orientation: upright;
+	text-align: justify;
+	height: min-content;
+	font-size: 14.5px;
+	margin: -1.1rem 7.5rem 0 0;
+}
+
+footer:hover span {
+	opacity: 1;
 }
