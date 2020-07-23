@@ -40,7 +40,7 @@
                         <h1>4. Choose folder name</h1>
                         <p class="comment">Type a unique folder name where you want the documentation to be saved</p>
                         <div class="form-group field">
-                            <input type="text" class="form-field" id="foldername" name="foldername" placeholder="Folder name" required>
+                            <input type="text" class="form-field" id="foldername" name="foldername" minlength="1" maxlength="64" pattern="[A-Za-z0-9-]+" placeholder="Folder name" title="Letters, numbers and dash (-) are allowed" required>
                             <label for="foldername" class="form-label">Folder name</label>
                         </div>
                     </div>

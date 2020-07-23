@@ -13,12 +13,22 @@ const onFormSubmitted = event => {
     const folderName = document.getElementById('foldername').value;
 
     if (!file) {
-        window.alert("No file chosen");
+        window.alert("File should be selected");
         return;
     }
 
     if (activeOption == -1) {
-        window.alert("No theme chosen");
+        window.alert("Theme should be selected");
+        return;
+    }
+
+    if (folderName == -1) {
+        window.alert("Folder name should be selected");
+        return;
+    }
+
+    if (RegExp("[A-Za-z0-9-]+").test(folderName)) {
+        window.alert("Folder name should be valid");
         return;
     }
 

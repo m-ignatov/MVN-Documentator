@@ -21,6 +21,12 @@ try {
 
 // Set custom folder
 $targetFolder = $_POST['folderName'];
+
+$validation = preg_match("/[A-Za-z0-9-]+/", $targetFolder);
+if ($validation != 1) {
+    sendResponse('Folder name should be valid.', false);
+}
+
 $targetPath = "../maven/target/" . $targetFolder;
 $message = file_exists($targetPath) ? 'This folder already exists. Choose another folder name' : 'Placeholder';
 $success =  file_exists($targetPath) ? false : true;
