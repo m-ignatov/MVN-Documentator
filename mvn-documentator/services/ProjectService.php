@@ -62,7 +62,7 @@ class ProjectService
 
     public function fetchStudentsByProjectId($projectId): array
     {
-        $params = [':value', $projectId, PDO::PARAM_INT, ':folder', $this->folder, PDO::PARAM_STR_CHAR];
+        $params = [':value', $projectId, PDO::PARAM_INT, ':folder', $this->folder, PDO::PARAM_STR];
         $result = $this->executeQuery("SELECT * FROM students WHERE projectID = :value AND folderName = :folder", $params);
 
         return $result->fetchAll();
